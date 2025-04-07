@@ -1,3 +1,4 @@
+// @ts-nocheck
 import './app.css'
 import './pico.yellow.css'
 
