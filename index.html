@@ -97,7 +97,7 @@
      * Display a notification if determined to be on mobile
      */
     function showWorkerNotification() {
-      navigator.serviceWorker.register('https://www.kenherbert.dev/static/js//browser-notifications-test-worker.js').then(function (registration) {
+      navigator.serviceWorker.register('./src/worker.js').then(function (registration) {
         registration.update();
 
         const messageChannel = new MessageChannel();
