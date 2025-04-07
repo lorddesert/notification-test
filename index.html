@@ -6,25 +6,42 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite + Preact + TS</title>
+
+  <style>
+    legend {
+      display: flex;
+    }
+  </style>
 </head>
 
 <body>
-
-  <div class="grid">
-    <legend id="notification-status"></legend>
-    <legend id="support-status"></legend>
-    <legend id="permission-status-field"></legend>
-    <legend id="notification-status-field"></legend>
-    <legend id="notification-field"></legend>
-    <legend id="permission-status"></legend>
-  </div>
-
-  <button>Mostrar notificacion</button>
-  <button id="notify">Dar permiso</button>
-  <div id="app"></div>
+  <!-- <div id="app"></div> -->
   <script type="module" src="/src/main.tsx"></script>
 
-  <!-- <script>
+  <article>
+    <section>
+      <label for="mobile-selector">
+        <input type="checkbox" name="mobile-selector" id="mobile-selector" />
+        Mobile
+      </label>
+    </section>
+
+    <div class="grid">
+      <legend id="notification-status"></legend>
+      <legend id="support-status"></legend>
+      <legend id="permission-status-field"></legend>
+      <legend id="notification-status-field"></legend>
+      <legend id="notification-field"></legend>
+      <legend id="permission-status"></legend>
+    </div>
+
+    <footer>
+
+      <button id="notify">Dar permiso</button>
+    </footer>
+  </article>
+
+  <script>
     /* global $ */
     /**
      * Determine if running on a Chromium browser on Android
@@ -133,22 +150,21 @@
      * Call the necessary notification method based on determined platform
      */
 
-     function sleep(ms) {
+    async function sleep(ms) {
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    function notify() {
+    async function notify() {
       if (document.getElementById('mobile-selector').checked) {
-        sleep(showWorkerNotification(), 1000);
+        await sleep(1000)
+        showWorkerNotification()
       } else {
-        sleep(showStandardNotification(), 1000);
+        await sleep(1000)
+        showStandardNotification()
       }
     }
 
 
-    /**
-     * Handle user click on the show notification button
-     */
     document.getElementById('notify').onclick = function () {
       if (Notification.permission === 'granted') {
         document.getElementById('notification-status').innerHTML = 'pending';
@@ -170,7 +186,7 @@
     };
 
     initialize();
-  </script> -->
+  </script>
 </body>
 
 </html>
