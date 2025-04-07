@@ -8,8 +8,21 @@
   <title>Vite + Preact + TS</title>
 
   <style>
-    legend {
+    p {
       display: flex;
+    }
+
+    body {
+      min-height: 100dvh;
+      display: grid;
+      place-content: center;
+    }
+
+    article {
+      padding: 5rem !important;
+
+      display: grid;
+      gap: 2rem;
     }
   </style>
 </head>
@@ -26,13 +39,13 @@
       </label>
     </section>
 
-    <div class="grid">
-      <legend id="notification-status"></legend>
-      <legend id="support-status"></legend>
-      <legend id="permission-status-field"></legend>
-      <legend id="notification-status-field"></legend>
-      <legend id="notification-field"></legend>
-      <legend id="permission-status"></legend>
+    <div>
+      <p id="notification-status"></p>
+      <p id="support-status"></p>
+      <p id="permission-status-field"></p>
+      <p id="notification-status-field"></p>
+      <p id="notification-field"></p>
+      <p id="permission-status"></p>
     </div>
 
     <footer>
